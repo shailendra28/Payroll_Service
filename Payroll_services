@@ -297,6 +297,65 @@ mysql>  SELECT * FROM employee_payroll;
 
 mysql>
 
+---------------------------------UC9-------EXTEND emp_payroll-------------------------------------------------------
+mysql>  ALTER TABLE employee_payroll RENAME COLUMN Salary TO Basic_Pay;
+Query OK, 0 rows affected (0.37 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>  ALTER TABLE employee_payroll ADD deductions DOUBLE NOT NULL AFTER Basic_Pay;
+Query OK, 0 rows affected (2.41 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD taxable_pay DOUBLE NOT NULL AFTER deductions;
+Query OK, 0 rows affected (0.97 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD tax DOUBLE NOT NULL AFTER taxable_pay;
+Query OK, 0 rows affected (2.26 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD net_pay DOUBLE NOT NULL AFTER tax;
+Query OK, 0 rows affected (2.15 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe employee_payroll;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| PersonID     | int          | NO   | PRI | NULL    | auto_increment |
+| Name         | varchar(100) | YES  |     | NULL    |                |
+| phone_number | varchar(250) | YES  |     | NULL    |                |
+| address      | varchar(250) | YES  |     | NULL    |                |
+| department   | varchar(250) | YES  |     | TBD     |                |
+| gender       | char(1)      | YES  |     | NULL    |                |
+| Basic_Pay    | int          | NO   |     | NULL    |                |
+| deductions   | double       | NO   |     | NULL    |                |
+| taxable_pay  | double       | NO   |     | NULL    |                |
+| tax          | double       | NO   |     | NULL    |                |
+| net_pay      | double       | NO   |     | NULL    |                |
+| StartDate    | date         | YES  |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+12 rows in set (0.07 sec)
+
+mysql> SELECT * FROM employee_payroll;
++----------+------------+--------------+---------+------------+--------+-----------+------------+-------------+-----+---------+------------+
+| PersonID | Name       | phone_number | address | department | gender | Basic_Pay | deductions | taxable_pay | tax | net_pay | StartDate  |
++----------+------------+--------------+---------+------------+--------+-----------+------------+-------------+-----+---------+------------+
+|        1 | Shailendra | NULL         | NULL    | NULL       | M      |     55000 |          0 |           0 |   0 |       0 | 2021-07-20 |
+|        2 | Mohan      | NULL         | NULL    | NULL       | M      |     25000 |          0 |           0 |   0 |       0 | 2020-06-03 |
+|        3 | Ravi       | NULL         | NULL    | NULL       | M      |     30500 |          0 |           0 |   0 |       0 | 2016-04-09 |
+|        4 | Mohini     | NULL         | NULL    | NULL       | F      |     35000 |          0 |           0 |   0 |       0 | 2018-06-03 |
+|        5 | Komal      | NULL         | NULL    | NULL       | F      |     39500 |          0 |           0 |   0 |       0 | 2017-09-30 |
+|        6 | Bill       | NULL         | NULL    | NULL       | M      |    100000 |          0 |           0 |   0 |       0 | 2018-01-01 |
+|        7 | Charlie    | NULL         | NULL    | NULL       | M      |    200000 |          0 |           0 |   0 |       0 | 2019-01-05 |
+|        8 | Terisa     | NULL         | NULL    | NULL       | F      |    300000 |          0 |           0 |   0 |       0 | 2018-02-06 |
++----------+------------+--------------+---------+------------+--------+-----------+------------+-------------+-----+---------+------------+
+8 rows in set (0.00 sec)
+
+mysql>
+
+
+
 
 
 
