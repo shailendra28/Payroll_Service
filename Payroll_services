@@ -73,3 +73,18 @@ Query OK, 1 row affected (0.12 sec)
 mysql> INSERT INTO employee_payroll
     -> (Name,Salary,StartDate) values('Komal','39500','2017-09-30');
 Query OK, 1 row affected (0.11 sec)
+----------------------------UC3---RETRIEVE DATA----------------------------------
+
+mysql> select * from employee_payroll;
++----------+------------+--------+------------+
+| PersonID | Name       | Salary | StartDate  |
++----------+------------+--------+------------+
+|        1 | Shailendra |  55000 | 2021-07-20 |
+|        2 | Mohan      |  25000 | 2020-06-03 |
+|        3 | Ravi       |  30500 | 2016-04-09 |
+|        4 | Mohini     |  35000 | 2018-06-03 |
+|        5 | Komal      |  39500 | 2017-09-30 |
++----------+------------+--------+------------+
+5 rows in set (0.05 sec)
+
+mysql>
