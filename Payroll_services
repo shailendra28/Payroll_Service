@@ -168,6 +168,131 @@ mysql> select * from employee_payroll;
 mysql>
 
 
+--------------UC7-----FIND SUM,AVERAGE,MIn,MAX,COUNT----------------------
+
+----------------------SUM-------------------------------------------------
+
+mysql> SELECT SUM(Salary) FROM employee_payroll
+    -> WHERE gender = 'F' GROUP BY gender;
++-------------+
+| SUM(Salary) |
++-------------+
+|      374500 |
++-------------+
+1 row in set (0.05 sec)
+
+mysql> SELECT SUM(Salary) FROM employee_payroll
+    -> WHERE gender = 'M' GROUP BY gender;
++-------------+
+| SUM(Salary) |
++-------------+
+|      410500 |
++-------------+
+1 row in set (0.00 sec)
+
+----------------------AVG-------------------------------------------------
+
+mysql> SELECT AVG(salary) FROM employee_payroll WHERE gender = 'F' GROUP BY gend
+er;
++-------------+
+| AVG(salary) |
++-------------+
+| 124833.3333 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT AVG(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY gend
+er;
++-------------+
+| AVG(salary) |
++-------------+
+|  82100.0000 |
++-------------+
+1 row in set (0.00 sec)
+
+----------------------MIN-------------------------------------------------
+
+mysql> SELECT gender, MIN(salary) FROM employee_payroll GROUP BY gender;
++--------+-------------+
+| gender | MIN(salary) |
++--------+-------------+
+| M      |       25000 |
+| F      |       35000 |
++--------+-------------+
+2 rows in set (0.04 sec)
+
+----------------------MAX-------------------------------------------------
+
+mysql> SELECT gender, MAX(salary) FROM employee_payroll GROUP BY gender;
++--------+-------------+
+| gender | MAX(salary) |
++--------+-------------+
+| M      |      200000 |
+| F      |      300000 |
++--------+-------------+
+2 rows in set (0.00 sec)
+
+----------------------COUNT-------------------------------------------------
+
+mysql> SELECT gender, COUNT(name) FROM employee_payroll GROUP BY gender;
++--------+-------------+
+| gender | COUNT(name) |
++--------+-------------+
+| M      |           5 |
+| F      |           3 |
++--------+-------------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
