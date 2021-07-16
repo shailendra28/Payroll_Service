@@ -1,5 +1,6 @@
 WELCOME TO THE PAYROLL_SERVICE
 ----------------------------UC1---CREATE DATABASE----------------------------------
+// Here I am checking list of Databases
 mysql> show databases;
 +---------------------+
 | Database            |
@@ -11,6 +12,8 @@ mysql> show databases;
 | sys                 |
 +---------------------+
 5 rows in set (0.00 sec)
+
+// Here I have created database of name payroll_service
 
 mysql> create database payroll_service;
 Query OK, 1 row affected (0.19 sec)
@@ -28,4 +31,25 @@ mysql> show databases;
 +---------------------+
 6 rows in set (0.05 sec)
 
-mysql>
+----------------------------UC2---CREATE TABLE EMPLOYEE_PAYROLL----------------------------------
+mysql> use payroll_service;
+Database changed
+// Here I have created table of name employee_payroll
+mysql> CREATE TABLE employee_payroll(
+    -> PersonID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    -> Name varchar(100),
+    -> Salary int(255) NOT NULL,
+    -> StartDate DATE
+    -> );
+Query OK, 0 rows affected, 1 warning (8.05 sec)
+
+mysql> desc employee_payroll;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| PersonID  | int          | NO   | PRI | NULL    | auto_increment |
+| Name      | varchar(100) | YES  |     | NULL    |                |
+| Salary    | int          | NO   |     | NULL    |                |
+| StartDate | date         | YES  |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+4 rows in set (1.15 sec)
