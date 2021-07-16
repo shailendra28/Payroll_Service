@@ -246,7 +246,56 @@ mysql> SELECT gender, COUNT(name) FROM employee_payroll GROUP BY gender;
 mysql>
 
 
+----------------------UC8---ALTER DATA-------------------------------------------------
 
+mysql> ALTER TABLE employee_payroll ADD phone_number VARCHAR(250) AFTER Name;
+Query OK, 0 rows affected (2.78 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD address VARCHAR(250) AFTER phone_number;
+
+Query OK, 0 rows affected (1.50 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD department VARCHAR(250) AFTER address;
+Query OK, 0 rows affected (2.22 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ALTER department SET DEFAULT 'TBD';
+Query OK, 0 rows affected (0.42 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe employee_payroll;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| PersonID     | int          | NO   | PRI | NULL    | auto_increment |
+| Name         | varchar(100) | YES  |     | NULL    |                |
+| phone_number | varchar(250) | YES  |     | NULL    |                |
+| address      | varchar(250) | YES  |     | NULL    |                |
+| department   | varchar(250) | YES  |     | TBD     |                |
+| gender       | char(1)      | YES  |     | NULL    |                |
+| Salary       | int          | NO   |     | NULL    |                |
+| StartDate    | date         | YES  |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.09 sec)
+
+mysql>  SELECT * FROM employee_payroll;
++----------+------------+--------------+---------+------------+--------+--------+------------+
+| PersonID | Name       | phone_number | address | department | gender | Salary | StartDate  |
++----------+------------+--------------+---------+------------+--------+--------+------------+
+|        1 | Shailendra | NULL         | NULL    | NULL       | M      |  55000 | 2021-07-20 |
+|        2 | Mohan      | NULL         | NULL    | NULL       | M      |  25000 | 2020-06-03 |
+|        3 | Ravi       | NULL         | NULL    | NULL       | M      |  30500 | 2016-04-09 |
+|        4 | Mohini     | NULL         | NULL    | NULL       | F      |  35000 | 2018-06-03 |
+|        5 | Komal      | NULL         | NULL    | NULL       | F      |  39500 | 2017-09-30 |
+|        6 | Bill       | NULL         | NULL    | NULL       | M      | 100000 | 2018-01-01 |
+|        7 | Charlie    | NULL         | NULL    | NULL       | M      | 200000 | 2019-01-05 |
+|        8 | Terisa     | NULL         | NULL    | NULL       | F      | 300000 | 2018-02-06 |
++----------+------------+--------------+---------+------------+--------+--------+------------+
+8 rows in set (0.00 sec)
+
+mysql>
 
 
 
