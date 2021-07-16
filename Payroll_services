@@ -53,3 +53,23 @@ mysql> desc employee_payroll;
 | StartDate | date         | YES  |     | NULL    |                |
 +-----------+--------------+------+-----+---------+----------------+
 4 rows in set (1.15 sec)
+----------------------------UC3---CREATE DATA----------------------------------
+mysql> INSERT INTO employee_payroll
+    -> (Name,Salary,StartDate) values('Shailendra','55000','2021-07-20')
+Query OK, 1 row affected (0.22 sec)
+
+mysql> INSERT INTO employee_payroll
+    -> (Name,Salary,StartDate) values('Mohan','25000','2020-06-03');
+Query OK, 1 row affected (0.23 sec)
+
+mysql> INSERT INTO employee_payroll
+    -> (Name,Salary,StartDate) values('Ravi','30500','2016-04-09');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> INSERT INTO employee_payroll
+    -> (Name,Salary,StartDate) values('Mohini','35000','2018-06-03');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> INSERT INTO employee_payroll
+    -> (Name,Salary,StartDate) values('Komal','39500','2017-09-30');
+Query OK, 1 row affected (0.11 sec)
