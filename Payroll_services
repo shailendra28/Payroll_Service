@@ -355,8 +355,44 @@ mysql> SELECT * FROM employee_payroll;
 mysql>
 
 
+-------------------------------UC10--------ADD TERISA'S DEPARTEMENT------------------------------------------------------------------------------------
 
 
+
+mysql> UPDATE employee_payroll SET department = 'Sales' WHERE name = 'Terisa';
+Query OK, 1 row affected (0.26 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> INSERT INTO employee_payroll (Name, department, gender, basic_pay, deductions, taxable_pay, tax, net_pay, startdate) VALUES
+    -> ('Terisa', 'Marketing', 'F', 300000.00, 100000.00, 50000.00, 50000.00, 100000.00, '2018-02-06');
+Query OK, 1 row affected (0.14 sec)
+
+mysql>  select * from employee_payroll;
++----------+------------+--------------+---------+------------+--------+-----------+------------+-------------+-------+---------+------------+
+| PersonID | Name       | phone_number | address | department | gender | Basic_Pay | deductions | taxable_pay | tax   | net_pay | StartDate  |
++----------+------------+--------------+---------+------------+--------+-----------+------------+-------------+-------+---------+------------+
+|        1 | Shailendra | NULL         | NULL    | NULL       | M      |     55000 |          0 |           0 |     0 |       0 | 2021-07-20 |
+|        2 | Mohan      | NULL         | NULL    | NULL       | M      |     25000 |          0 |           0 |     0 |       0 | 2020-06-03 |
+|        3 | Ravi       | NULL         | NULL    | NULL       | M      |     30500 |          0 |           0 |     0 |       0 | 2016-04-09 |
+|        4 | Mohini     | NULL         | NULL    | NULL       | F      |     35000 |          0 |           0 |     0 |       0 | 2018-06-03 |
+|        5 | Komal      | NULL         | NULL    | NULL       | F      |     39500 |          0 |           0 |     0 |       0 | 2017-09-30 |
+|        6 | Bill       | NULL         | NULL    | NULL       | M      |    100000 |          0 |           0 |     0 |       0 | 2018-01-01 |
+|        7 | Charlie    | NULL         | NULL    | NULL       | M      |    200000 |          0 |           0 |     0 |       0 | 2019-01-05 |
+|        8 | Terisa     | NULL         | NULL    | Sales      | F      |    300000 |          0 |           0 |     0 |       0 | 2018-02-06 |
+|        9 | Terisa     | NULL         | NULL    | Marketing  | F      |    300000 |     100000 |       50000 | 50000 |  100000 | 2018-02-06 |
++----------+------------+--------------+---------+------------+--------+-----------+------------+-------------+-------+---------+------------+
+9 rows in set (0.00 sec)
+
+mysql> select * from employee_payroll where name='Terisa';
++----------+--------+--------------+---------+------------+--------+-----------+------------+-------------+-------+---------+------------+
+| PersonID | Name   | phone_number | address | department | gender | Basic_Pay | deductions | taxable_pay | tax   | net_pay | StartDate  |
++----------+--------+--------------+---------+------------+--------+-----------+------------+-------------+-------+---------+------------+
+|        8 | Terisa | NULL         | NULL    | Sales      | F      |    300000 |          0 |           0 |     0 |       0 | 2018-02-06 |
+|        9 | Terisa | NULL         | NULL    | Marketing  | F      |    300000 |     100000 |       50000 | 50000 |  100000 | 2018-02-06 |
++----------+--------+--------------+---------+------------+--------+-----------+------------+-------------+-------+---------+------------+
+2 rows in set (0.00 sec)
+
+mysql>
 
 
 
